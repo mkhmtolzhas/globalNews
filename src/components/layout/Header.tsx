@@ -20,11 +20,6 @@ const Header = () => {
                 </svg>
             </Link>
         </nav>
-        {/* <nav id="mobileMenu" className='hidden flex-col items-center bg-white absolute top-[60px] left-0 w-full px-[8%] py-[20px] z-10'>
-            <Link href="" className="block text-[18px] text-[#000] font-medium my-[10px] [transition:.3s]">Home</Link>
-            <Link href="" className="block text-[18px] text-[#000] font-medium my-[10px] [transition:.3s]">About</Link>
-            <Link href="" className="block text-[18px] text-[#000] font-medium my-[10px] [transition:.3s]">Contacts</Link>
-        </nav> */}
     </header>
   )
 }
