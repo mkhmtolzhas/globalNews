@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, Navigation, Autoplay } from 'swiper/modules'
+import { Pagination, Autoplay } from 'swiper/modules'
 import { useEffect, useState } from 'react'
 import HeroNewsComponent from './HeroNewsComponent'
 import axios from 'axios'
@@ -28,11 +28,10 @@ const HeroNews = () => {
         <section className='w-full md:h-[55vh] lg:h-[55vh] h-[25vh] flex justify-center items-center font-mono mb-16'>
             <div className="w-full">
                 <Swiper
-                modules={[Pagination,Navigation, Autoplay]}
+                modules={[Pagination, Autoplay]}
                 spaceBetween={50}
                 slidesPerView={1}
                 pagination={{ clickable: true }}
-                navigation={true}
                 autoplay={{ delay: 2500, disableOnInteraction: false }}
                 loop={true}
                 
