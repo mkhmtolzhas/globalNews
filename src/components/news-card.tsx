@@ -12,12 +12,11 @@ interface NewsArticle {
   description: string;
   imageUrl: string;
   publishedAt: string;
-  url: string;
   tags: string[];
 }
 
 
-export function NewsCard({ id, title, description, imageUrl, publishedAt, url, tags }: NewsArticle) {
+export function NewsCard({ id, title, description, imageUrl, publishedAt, tags }: NewsArticle) {
   const sanitizedDate = publishedAt.replace(/\.\d+$/, ''); // Убираем лишние миллисекунды
 
   // Форматируем дату с кастомизацией
