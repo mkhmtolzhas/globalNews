@@ -9,7 +9,7 @@ import Image from 'next/image'
 import { Card, CardContent } from "@/components/ui/card"
 import { CalendarIcon } from 'lucide-react';
 
-const page = () => {
+const Page = () => {
     const { id } = useParams()
     const [news, setNews] = useState(Object)
     useEffect(() => {
@@ -105,4 +105,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page
