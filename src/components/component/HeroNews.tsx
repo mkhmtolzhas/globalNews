@@ -2,41 +2,56 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation, Autoplay } from 'swiper/modules'
+import { useEffect, useState } from 'react'
+import HeroNewsComponent from './HeroNewsComponent'
+import axios from 'axios'
+
+
 
 const HeroNews = () => {
-  return (
-    <section className='w-full md:h-[55vh] lg:h-[55vh] h-[25vh] flex justify-center items-center font-mono mb-16'>
-        <div className="w-full">
-            <Swiper
-            modules={[Pagination,Navigation, Autoplay]}
-            spaceBetween={50}
-            slidesPerView={1}
-            pagination={{ clickable: true }}
-            navigation={true}
-            autoplay={{ delay: 2500, disableOnInteraction: false }}
-            loop={true}
-            
-            >
-                <SwiperSlide>
-                    <div className='w-full md:h-[55vh] lg:h-[55vh] h-[25vh] bg-red-500 flex justify-center items-center rounded-xl'>
-                        <h1 className='text-4xl text-white'>Slide 1</h1>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className='w-full md:h-[55vh] lg:h-[55vh] h-[25vh] bg-green-500 flex justify-center items-center rounded-xl'>
-                        <h1 className='text-4xl text-white'>Slide 2</h1>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className='w-full md:h-[55vh] lg:h-[55vh] h-[25vh] bg-blue-500 flex justify-center items-center rounded-xl'>
-                        <h1 className='text-4xl text-white'>Slide 3</h1>
-                    </div>
-                </SwiperSlide>
+    const [news, setNews] = useState([])
+    
+    const fetchNews = async () => {
+        try {
+            const response = await axios.get(`https://globalnewsapi-production-51a9.up.railway.app/api/v1/news/?page=0&limit=3`)
+            setNews(response.data)
+        } catch (error) {
+            console.error(error)
+        }
+    }
 
-            </Swiper>
-        </div>
-    </section>
-  )
+    useEffect(() => {
+        fetchNews()
+    }, [])
+
+    return (
+        <section className='w-full md:h-[55vh] lg:h-[55vh] h-[25vh] flex justify-center items-center font-mono mb-16'>
+            <div className="w-full">
+                <Swiper
+                modules={[Pagination,Navigation, Autoplay]}
+                spaceBetween={50}
+                slidesPerView={1}
+                pagination={{ clickable: true }}
+                navigation={true}
+                autoplay={{ delay: 2500, disableOnInteraction: false }}
+                loop={true}
+                
+                >
+                    {news.map((item) => (
+                        <SwiperSlide key={item['_id']}>
+                            <HeroNewsComponent
+                                title={item["title"]}
+                                description={item['content']}
+                                imageUrl={item['image']}
+                                id={`${item['_id']}`}
+                            />
+                        </SwiperSlide>
+                    ))}
+
+                </Swiper>
+            </div>
+        </section>
+    )
 }
 
 export default HeroNews
