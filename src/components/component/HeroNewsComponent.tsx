@@ -23,8 +23,8 @@ const HeroNewsComponent: React.FC<NewsCardProps> = ({ title, description, imageU
         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
             <div className="absolute bottom-0 left-0 p-[5%] z-20 w-full">
                 <div className="space-y-2">
-                <h2 className="text-xl md:text-2xl font-bold text-white line-clamp-2">{title}</h2>
-                <p className="text-sm md:text-base text-gray-200 line-clamp-2">{description}</p>
+                <h2 className="text-sm md:text-2xl font-bold text-white line-clamp-2">{title}</h2>
+                <p className="text-xs md:text-base text-gray-200 line-clamp-2">{description}</p>
                 </div>
             </div>
         </div>
