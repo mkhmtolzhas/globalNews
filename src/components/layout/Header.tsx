@@ -4,7 +4,7 @@ import React from 'react'
 const Header = () => {
   return (
     <header className='top-0 left-0 w-full px-[8%] py-[30px] bg-transparent flex justify-between items-center font-mono'>
-        <Link href="" className='text-[25px] text-[#000] font-semibold'>global<span className='text-red-600'>News</span></Link>
+        <Link href="/" className='text-[25px] text-[#000] font-semibold'>global<span className='text-red-600'>News</span></Link>
         <nav className='hidden md:flex'>
             <Link href="" className="text-[18px] text-[#000] font-medium mx-[20px] my-[0] [transition:.3s] hover:text-red-600">Home</Link>
             <Link href="" className="text-[18px] text-[#000] font-medium mx-[20px] my-[0] [transition:.3s] hover:text-red-600">About</Link>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { NewsCard } from '../news-card'
+import { Button } from '../ui/button'
 
 const LatestNews = () => {
   return (
@@ -44,6 +45,11 @@ const LatestNews = () => {
 
       </div>
 
+      <div className="flex justify-center items-center">
+        <Button className="bg-red-600 text-white rounded-xl hover:bg-black mt-6">
+          Больше новостей
+        </Button>
+      </div>
     </section>
   )
 }
