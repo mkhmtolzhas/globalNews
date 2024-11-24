@@ -1,21 +1,29 @@
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+/* Изменить цвет стрелок */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000000; /* Задайте нужный цвет, например, красный */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Изменить цвет стрелок при наведении */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #000000; /* Задайте цвет при наведении, например, зеленый */
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  color: #000000; /* Задайте нужный цвет, например, красный */
+}
+
+/* Изменить цвет точек */
+.swiper-pagination-bullet-active{
+  --swiper-theme-color: #000000;
 }
