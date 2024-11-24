@@ -6,7 +6,6 @@ import Footer from '@/components/layout/Footer'
 import { useEffect } from 'react'
 import axios from 'axios'
 import Image from 'next/image'
-import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { CalendarIcon } from 'lucide-react';
 

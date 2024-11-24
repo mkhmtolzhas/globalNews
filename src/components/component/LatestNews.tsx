@@ -16,7 +16,6 @@ const LatestNews = () => {
   
   const fetchNews = async () => {
     try {
-      setLoading(true)
       const response = await axios.get(`https://globalnewsapi-production-51a9.up.railway.app/api/v1/news/?page=${page}&limit=8`)
       setNews(response.data)
       setPage(page + 1)
