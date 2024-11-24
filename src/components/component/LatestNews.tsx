@@ -4,6 +4,7 @@ import { NewsCard } from '../news-card'
 import { Button } from '../ui/button'
 import axios from 'axios'
 import Loading from './Loading'
+import { set } from 'date-fns'
 
 const LatestNews = () => {
   const [news, setNews] = useState<any[]>([])
@@ -38,6 +39,10 @@ const LatestNews = () => {
   }
 
   useEffect(() => {
+    fetchMoreNews()
+  }, [page])
+
+  useEffect(() => {
     fetchNews(page)  // Загружаем новости при первом рендере
   }, [page])  // Зависимость от page
 
@@ -68,7 +73,7 @@ const LatestNews = () => {
         ) : (
           <Button
             className="bg-red-600 text-white rounded-xl hover:bg-black mt-6"
-            onClick={fetchMoreNews}
+            onClick={() => setPage(page + 1)}
             disabled={loading} 
           >
             Больше новостей

@@ -1,7 +1,6 @@
 import React from 'react'
 import HeroNews from '../component/HeroNews'
 import LatestNews from '../component/LatestNews'
-import Footer from '../layout/Footer'
 
 const Landing = () => {
   return (
