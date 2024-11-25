@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="font-mono">
       <Header />
-      <Landing />
+      {/* <Landing /> */}
       <Footer />
     </div>
   )
