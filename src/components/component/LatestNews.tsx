@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
 import { NewsCard } from '../news-card'
 import { Button } from '../ui/button'
 import axios from 'axios'
@@ -29,7 +30,6 @@ const LatestNews = () => {
   useEffect(() => {
     console.log(news)
   }, [news])
-
 
   return (
     <section className="w-full md:min-h-[55vh] lg:min-h-[55vh] min-h-[25vh] font-mono">
@@ -65,4 +65,5 @@ const LatestNews = () => {
   )
 }
 
-export default LatestNews
+// Динамическая загрузка компонента с отключением SSR
+export default dynamic(() => Promise.resolve(LatestNews), { ssr: false })
