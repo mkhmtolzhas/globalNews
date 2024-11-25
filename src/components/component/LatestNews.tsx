@@ -1,5 +1,5 @@
 "use client"
-import React, { use, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NewsCard } from '../news-card'
 import { Button } from '../ui/button'
 import axios from 'axios'
@@ -22,7 +22,7 @@ const LatestNews = () => {
         setLoading(false)
       }
     }
-    
+
     fetchMoreNews()
   }, [page])
 
