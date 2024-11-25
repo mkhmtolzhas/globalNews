@@ -4,10 +4,7 @@ import dynamic from 'next/dynamic'
 import { NewsCard } from '../news-card'
 import { Button } from '../ui/button'
 import axios from 'axios'
-// import Loading from './Loading'
 
-// const NewsCard = dynamic(() => import('../news-card'), { ssr: false });
-// const Button = dynamic(() => import('../ui/button'), { ssr: false });
 const Loading = dynamic(() => import('./Loading'), { ssr: false });
 
 interface NewsArticle {
