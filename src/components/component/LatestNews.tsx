@@ -1,54 +1,35 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import { NewsCard } from '../news-card'
 import { Button } from '../ui/button'
 import axios from 'axios'
 import Loading from './Loading'
-import { set } from 'date-fns'
 
 const LatestNews = () => {
   const [news, setNews] = useState<any[]>([])
   const [loading, setLoading] = useState(false)
-  const [page, setPage] = useState(0)  // Стартовая страница с 1
-
-  // Загрузка новостей при инициализации
-  const fetchNews = async (page: number) => {
-    try {
-      setLoading(true)  // Управление состоянием загрузки
-      const response = await axios.get(`https://globalnewsapi-production-51a9.up.railway.app/api/v1/news/?page=${page}&limit=8`)
-      setNews(response.data)
-    } catch (error) {
-      console.error(error)
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  // Загрузка дополнительных новостей
-  const fetchMoreNews = async () => {
-    try {
-      setPage(page + 1)  // Увеличиваем номер страницы
-      setLoading(true)
-      const response = await axios.get(`https://globalnewsapi-production-51a9.up.railway.app/api/v1/news/?page=${page}&limit=8`)
-      setNews((prevNews) => [...prevNews, ...response.data])  // Используем функциональный способ обновления состояния
-    } catch (error) {
-      console.error(error)
-    } finally {
-      setLoading(false)
-    }
-  }
+  const [page, setPage] = useState(0)
 
   useEffect(() => {
+    const fetchMoreNews = async () => {
+      try {
+        setLoading(true)
+        const response = await axios.get(`https://globalnewsapi-production-51a9.up.railway.app/api/v1/news/?page=${page}&limit=8`)
+        setNews((prevNews) => [...prevNews, ...response.data])
+      } catch (error) {
+        console.error(error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    
     fetchMoreNews()
   }, [page])
 
   useEffect(() => {
-    fetchNews(page)  // Загружаем новости при первом рендере
-  }, [page])  // Зависимость от page
-
-  useEffect(() => {
     console.log(news)
   }, [news])
+
 
   return (
     <section className="w-full md:min-h-[55vh] lg:min-h-[55vh] min-h-[25vh] font-mono">
