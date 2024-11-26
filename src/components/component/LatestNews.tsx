@@ -26,31 +26,35 @@ const LatestNews = () => {
   const [news, setNews] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
-  const [lengthOfSkeleton, setLengthOfSkeleton] = useState(8);
+  const [skeletonCount, setSkeletonCount] = useState(8); // Начальное значение для скелетонов
 
   useEffect(() => {
     const fetchMoreNews = async () => {
       try {
         setLoading(true);
-        if (page === 0) setNews([]);
+        if (page === 0) setNews([]); // Если первая страница, очищаем старые новости
         const response = await axios.get(
           `https://globalnewsapi-production-51a9.up.railway.app/api/v1/news/?page=${page}&limit=8`
         );
+
+        const newArticles = response.data;
         setNews((prevNews) =>
-          page === 0 ? response.data : [...prevNews, ...response.data]
+          page === 0 ? newArticles : [...prevNews, ...newArticles]
         );
-        setLengthOfSkeleton(news.length);
+
+        // Увеличиваем количество скелетонов в зависимости от полученных данных
+        setSkeletonCount((prevCount) =>
+          page === 0 ? newArticles.length : prevCount + newArticles.length
+        );
       } catch (error) {
         console.error("Ошибка загрузки новостей:", error);
       } finally {
         setLoading(false);
       }
     };
-  
+
     fetchMoreNews();
   }, [page]);
-  
-  
   
 
   return (
@@ -60,7 +64,7 @@ const LatestNews = () => {
       </span>
       <div className="w-full min-h-[40vh] lg:grid lg:grid-cols-4 md:grid md:grid-cols-2 md:gap-4 grid grid-cols-1 gap-5 mt-12">
         {/* Показываем скелетон, если загрузка */}
-        {loading && Array.from({ length: lengthOfSkeleton }).map((_, index) => (
+        {loading && Array.from({ length: skeletonCount }).map((_, index) => (
           <SkeletonNewsCard key={index} />
         ))}
         {/* Показываем карточки новостей после загрузки */}
