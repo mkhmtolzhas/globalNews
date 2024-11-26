@@ -34,7 +34,7 @@ export function NewsCard({ id, title, description, imageUrl, publishedAt, tags }
 
   console.log(publishedAt)
   return (
-    <Link href={`/news/${id}`}className='w-full min-w-sm mx-auto overflow-hidden'>
+    <Link href={`/news/${id}`} className='w-full min-w-sm mx-auto overflow-hidden'>
       <Card className="w-full min-w-sm mx-auto overflow-hidden">
         <div className="relative h-48 w-full">
           <Image
