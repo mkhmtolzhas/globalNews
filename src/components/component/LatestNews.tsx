@@ -26,6 +26,7 @@ const LatestNews = () => {
   const [news, setNews] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
+  const [lengthOfSkeleton, setLengthOfSkeleton] = useState(8);
 
   useEffect(() => {
     const fetchMoreNews = async () => {
@@ -38,6 +39,7 @@ const LatestNews = () => {
         setNews((prevNews) =>
           page === 0 ? response.data : [...prevNews, ...response.data]
         );
+        setLengthOfSkeleton(news.length);
       } catch (error) {
         console.error("Ошибка загрузки новостей:", error);
       } finally {
@@ -58,7 +60,7 @@ const LatestNews = () => {
       </span>
       <div className="w-full min-h-[40vh] lg:grid lg:grid-cols-4 md:grid md:grid-cols-2 md:gap-4 grid grid-cols-1 gap-5 mt-12">
         {/* Показываем скелетон, если загрузка */}
-        {loading && Array.from({ length: 8 }).map((_, index) => (
+        {loading && Array.from({ length: lengthOfSkeleton }).map((_, index) => (
           <SkeletonNewsCard key={index} />
         ))}
         {/* Показываем карточки новостей после загрузки */}
