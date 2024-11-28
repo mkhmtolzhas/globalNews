@@ -58,7 +58,7 @@ const LatestNews = () => {
   
 
   return (
-    <section className="w-full md:min-h-[55vh] lg:min-h-[55vh] min-h-[25vh] font-mono">
+    <section className="w-full md:min-h-[55vh] lg:min-h-[55vh] min-h-[25vh] font-mono" id='news'>
       <span className="text-4xl font-bold border-b-4 border-red-600 pb-2">
         Свежие новости
       </span>

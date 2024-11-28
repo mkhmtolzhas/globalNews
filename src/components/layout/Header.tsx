@@ -6,7 +6,7 @@ const Header = () => {
         <header className='top-0 left-0 w-full px-[8%] py-[30px] bg-transparent flex justify-between items-center font-mono border-b-4 border-b-red-600'>
             <Link href="/" className='text-[25px] text-[#000] font-semibold'>global<span className='text-red-600'>News</span></Link>
             <nav className='hidden md:flex'>
-                <Link href="/" className="text-[18px] text-[#000] font-medium mx-[20px] my-[0] [transition:.3s] hover:text-red-600">Новости</Link>
+                <Link href="#news" className="text-[18px] text-[#000] font-medium mx-[20px] my-[0] [transition:.3s] hover:text-red-600">Новости</Link>
                 <Link href="#footer" className="text-[18px] text-[#000] font-medium mx-[20px] my-[0] [transition:.3s] hover:text-red-600">О нас</Link>
                 <Link href="#footer" className="text-[18px] text-[#000] font-medium mx-[20px] my-[0] [transition:.3s] hover:text-red-600">Контакты</Link>
             </nav>
