@@ -84,9 +84,7 @@ export default function CreateNewsPage() {
     console.log('Данные для отправки:', jsonData)
 
     try {
-      const response = await axios.post('https://globalnewsapi-production-51a9.up.railway.app/api/v1/news', jsonData, {
-        headers: { 'Content-Type': 'application/json' },
-      })
+      const response = await axios.post('https://globalnewsapi-production-51a9.up.railway.app/api/v1/news/', jsonData)
       console.log('Новость успешно создана:', response.data)
     } catch (error) {
       console.error('Ошибка создания новости:', error)
