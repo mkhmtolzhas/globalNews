@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="w-full bg-gray-100 text-gray-600 p-8" id='footer'>
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
-          <div className='flex flex-col justify-center items-center'>
+          <div className='md:flex md:flex-col md:justify-center md:items-center'>
             <h3 className="text-lg font-medium mb-4 text-red-600">О нас</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
@@ -31,7 +31,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className='flex flex-col justify-center items-center'>
+          <div className='md:flex md:flex-col md:justify-center md:items-center'>
             <h3 className="text-lg font-medium mb-4 text-red-600">Контакты</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
