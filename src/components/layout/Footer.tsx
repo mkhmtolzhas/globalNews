@@ -10,22 +10,22 @@ const Footer = () => {
             <h3 className="text-lg font-medium mb-4 text-red-600">О нас</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <Link href="/about" className="hover:underline" prefetch={false}>
+                <Link href="/" className="hover:underline" prefetch={false}>
                   О проекте
                 </Link>
               </li>
               <li>
-                <Link href="/news-policy" className="hover:underline" prefetch={false}>
+                <Link href="/" className="hover:underline" prefetch={false}>
                   Политика публикации новостей
                 </Link>
               </li>
               <li>
-                <Link href="/advertising" className="hover:underline" prefetch={false}>
+                <Link href="/" className="hover:underline" prefetch={false}>
                   Реклама на сайте
                 </Link>
               </li>
               <li>
-                <Link href="/contact-us" className="hover:underline" prefetch={false}>
+                <Link href="/" className="hover:underline" prefetch={false}>
                   Контакты
                 </Link>
               </li>
