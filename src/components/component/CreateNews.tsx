@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
+import { toast } from 'react-toastify'
 
 type FormData = {
   title: string
@@ -85,9 +86,9 @@ export default function CreateNewsPage() {
 
     try {
       const response = await axios.post('https://globalnewsapi-production-51a9.up.railway.app/api/v1/news/', jsonData)
-      console.log('Новость успешно создана:', response.data)
+      toast.success('Новость успешно создана')
     } catch (error) {
-      console.error('Ошибка создания новости:', error)
+      toast.error('Ошибка при создании новости')
     }
   }
 
