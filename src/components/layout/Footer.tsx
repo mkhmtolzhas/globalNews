@@ -4,59 +4,34 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-gray-100 text-gray-600 p-8">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          <div>
+    <footer className="w-full bg-gray-100 text-gray-600 p-8" id='footer'>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
+          <div className='flex flex-col justify-center items-center'>
             <h3 className="text-lg font-medium mb-4 text-red-600">О нас</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <Link href="https://goldapple.kz" className="hover:underline" prefetch={false}>
-                  Золотое яблоко
+                <Link href="/about" className="hover:underline" prefetch={false}>
+                  О проекте
                 </Link>
               </li>
               <li>
-                <Link href="https://goldapple.kz/documents#selling-policy" className="hover:underline" prefetch={false}>
-                  Правило продажи товаров
+                <Link href="/news-policy" className="hover:underline" prefetch={false}>
+                  Политика публикации новостей
                 </Link>
               </li>
               <li>
-                <Link href="https://goldapple.kz/parfjumerija" className="hover:underline" prefetch={false}>
-                  Парфюмерия
+                <Link href="/advertising" className="hover:underline" prefetch={false}>
+                  Реклама на сайте
                 </Link>
               </li>
               <li>
-                <Link href="https://goldapple.kz/stockists" className="hover:underline" prefetch={false}>
-                  Наши магазины
+                <Link href="/contact-us" className="hover:underline" prefetch={false}>
+                  Контакты
                 </Link>
               </li>
             </ul>
           </div>
-          <div>
-            <h3 className="text-lg font-medium mb-4 text-red-600">Об авторе</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li>
-                <Link href="#" className="hover:underline" prefetch={false}>
-                  Информация про автора
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:underline" prefetch={false}>
-                  Резюме
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:underline" prefetch={false}>
-                  Еще проекты
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:underline" prefetch={false}>
-                  Бекграунд
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
+          <div className='flex flex-col justify-center items-center'>
             <h3 className="text-lg font-medium mb-4 text-red-600">Контакты</h3>
             <ul className="space-y-2 text-gray-400">
               <li>

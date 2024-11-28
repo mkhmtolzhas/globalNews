@@ -29,3 +29,7 @@
 .swiper-pagination-bullet-active{
   --swiper-theme-color: #ffffff;
 }
+
+* {
+  scroll-behavior: smooth;
+}
